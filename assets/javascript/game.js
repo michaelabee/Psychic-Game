@@ -26,11 +26,13 @@ function empty (){
 
 // }
 
+//is this a scope error? its reading my if else statements because it is taking away the guesses and resetting them to 0. 
+
 
 document.onkeyup = function(event){
     console.log(event);
 
-    guesses --;
+    //guesses --;
 
     userGuess.push(event.key);
 
@@ -42,19 +44,23 @@ document.onkeyup = function(event){
 
     $("#guess-left").text(guesses);
 
-    if (guesses === 0) {
-        losses ++;
-        guesses = 10;
-        //pick a new random letter here
-        empty();
-    };
+    
     if (randomLetter === userGuess){
         wins++;
         guesses = 10;
         //pick a new random letter here
         empty();
     }
+    else if (randomLetter !== userGuess){
+        guesses --;
+    }
 
+    if (guesses === 0) {
+        losses ++;
+        guesses = 10;
+        //pick a new random letter here
+        empty();
+    };
 };
 
 
