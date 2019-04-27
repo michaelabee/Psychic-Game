@@ -1,0 +1,25 @@
+body {
+    background-image: url(../images/background.jpg);
+    color:white;
+}
+
+h1 {
+    text-align:center;
+    font-weight: 400px;
+    font-family: 'Smythe', cursive;
+}
+
+h2 {
+    font-family: 'Smythe', cursive;
+    text-align: center;
+}
+
+.counters{
+    background: white;
+    color:navy;
+    padding: 5px;
+    text-align:center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top:25px;
+}
