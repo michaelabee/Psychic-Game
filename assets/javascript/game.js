@@ -13,6 +13,20 @@ console.log(randomLetter);
 
 var userGuess = []
 
+function empty (){
+    userGuess.length = 0;
+};
+
+// WHY CANT I USE THIS FUNCTION TO PICK THE LETTER FOR THE RANDOM LETTER ARRAY? (LIKE SET THE RANDOMlETTER ARRAY = [] AND THEN RUN THE FUNCTION?)
+//IS IT AN ISSUE WITH HOW I AM PUSHING IT TO THE ARRAY? 
+// function letter (let) {
+//     alphabet[Math.floor(Math.random()*alphabet.length)];
+//     console.log(randomLetter);
+//     randomLetter.push(let);
+
+// }
+
+
 document.onkeyup = function(event){
     console.log(event);
 
@@ -32,20 +46,18 @@ document.onkeyup = function(event){
         losses ++;
         guesses = 10;
         //pick a new random letter here
-        //reset userGuess array here
+        empty();
     };
     if (randomLetter === userGuess){
         wins++;
         guesses = 10;
         //pick a new random letter here
-        //reset userGuess array here
+        empty();
     }
 
 };
 
-// //if (randomLetter === userGuess){
-//     wins ++
-// }; 
+
 
 
 
