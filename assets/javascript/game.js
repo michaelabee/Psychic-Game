@@ -1,4 +1,4 @@
-// alert ("You have 10 guesses! What letter am I thinking of?")
+//alert ("You have 10 guesses! What letter am I thinking of?")
 
 var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
@@ -9,30 +9,24 @@ var losses = 0;
 var guesses = 10;
 
 var randomLetter = alphabet[Math.floor(Math.random()*alphabet.length)];
+
+//I would also create a randomLetter function to be called onLoad and later in the js after a user runs out of guesses or gets a win. 
+
 console.log(randomLetter);
 
-var userGuess = []
+var userGuess = [];
 
 function empty (){
     userGuess.length = 0;
 };
 
-// WHY CANT I USE THIS FUNCTION TO PICK THE LETTER FOR THE RANDOM LETTER ARRAY? (LIKE SET THE RANDOMlETTER ARRAY = [] AND THEN RUN THE FUNCTION?)
-//IS IT AN ISSUE WITH HOW I AM PUSHING IT TO THE ARRAY? 
-// function letter (let) {
-//     alphabet[Math.floor(Math.random()*alphabet.length)];
-//     console.log(randomLetter);
-//     randomLetter.push(let);
-
-// }
-
-//is this a scope error? its reading my if else statements because it is taking away the guesses and resetting them to 0. 
-
+//I could not figure out how to get the randomLetter array to be compared to the userGuess array. I tried picking the random letter using
+// a funciton and then leaving the randomLetter array empty [], but I could never get it to work. This was the most functional I could get the game.
 
 document.onkeyup = function(event){
     console.log(event);
-
-    //guesses --;
+    
+    guesses -- ;
 
     userGuess.push(event.key);
 
@@ -44,25 +38,25 @@ document.onkeyup = function(event){
 
     $("#guess-left").text(guesses);
 
-    
-    if (randomLetter === userGuess){
-        wins++;
-        guesses = 10;
-        //pick a new random letter here
-        empty();
-    }
-    else if (randomLetter !== userGuess){
-        guesses --;
-    }
-
     if (guesses === 0) {
         losses ++;
         guesses = 10;
-        //pick a new random letter here
+        //call randomLetter function here
         empty();
     };
 };
 
+ 
+if (randomLetter === userGuess){
+    wins++;
+    guesses = 10;
+    //call randomLetter function here
+    empty();
+}
+
+else if (randomLetter !== userGuess){
+    guesses --;
+};
 
 
 
